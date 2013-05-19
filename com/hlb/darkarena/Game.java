@@ -24,7 +24,6 @@ import com.hlb.darkarena.items.gui.GuiItems;
 import com.hlb.darkarena.level.Level;
 import com.hlb.darkarena.level.SpawnLevel;
 
-//Test de push.
 
 public class Game extends Canvas implements Runnable
 {
