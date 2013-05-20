@@ -8,7 +8,6 @@ public class EnergyBall extends Projectile
 {
 
 	private boolean hasHit = false;
-	private boolean integrated = false;
 	
 	public EnergyBall(int x, int y, double dir, Mob shooter) {
 		super(x, y, dir, shooter);

@@ -42,8 +42,8 @@ public class Game extends Canvas implements Runnable
 	private Level level;
 	private Player player;
 	private boolean running = false;
-	private int numberZombies = 5;
-	private int numberDArchers = 1;
+	private int numberZombies = 1;
+	private int numberDArchers = 0;
 	public static ArrayList<Mob> mobs = new ArrayList<Mob>();
 	public ArrayList<Integer> mobsX = new ArrayList<Integer>();
 	public ArrayList<Integer> mobsY = new ArrayList<Integer>();
@@ -230,8 +230,7 @@ public class Game extends Canvas implements Runnable
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		g.setColor(Color.white);
 		g.setFont(new Font("French Script MT", Font.PLAIN, 32));
-		g.drawString("X: " + player.x, 20, 25);
-		g.drawString("  / Y: " + player.y, 80, 25);
+		g.drawString("X: " + player.x + "/ Y : " + player.y , 20, 25);
 		g.drawString("Health : " + player.getHealth() + " / " + player.getMaxHealth(), 700, 25);
 		g.setFont(new Font("French Script MT", Font.PLAIN, 28));
 		for(int i = 0; i < mobsX.size() ; i++)

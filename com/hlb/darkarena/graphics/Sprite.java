@@ -87,6 +87,7 @@ public class Sprite {
 			pixels[i] = color;
 		}
 	}
+
 	
 	private void load()
 	{
