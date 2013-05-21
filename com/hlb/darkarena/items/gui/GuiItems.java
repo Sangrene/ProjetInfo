@@ -1,18 +1,18 @@
 package com.hlb.darkarena.items.gui;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
 import com.hlb.darkarena.Game;
 import com.hlb.darkarena.entity.mob.Player;
 import com.hlb.darkarena.graphics.Screen;
 import com.hlb.darkarena.items.Items;
 
-public class GuiItems
+public class GuiItems extends JPanel
 {
 	private ArrayList<Items> playerInventory = new ArrayList<Items>();
 	private Player player;
@@ -30,27 +30,21 @@ public class GuiItems
 		this.player = player;
 		this.screen = screen;
 		playerInventory = player.playerInventory;
-		pixels = new int[w * h];
-		drawInventory();
+		
+		Dimension size = new Dimension(w*game.scale, h*game.scale);
+		setPreferredSize(size);
+
 	}
 	
 	public void drawInventory()
 	{
-		loadBackGround();
 		
-		screen.renderInventory(this);
 	}
 	
 	
 	public void loadBackGround()
 	{
-		try {
-			image = ImageIO.read(GuiItems.class.getResource("/textures/items/itemmenu.png"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		image.getRGB(0, 0, w, h, pixels, 0, w);
+		
 	}
 	
 	

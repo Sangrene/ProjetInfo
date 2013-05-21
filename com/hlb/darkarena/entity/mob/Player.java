@@ -75,25 +75,21 @@ public class Player extends Mob {
 		if (angleMouse >= -120 && angleMouse < -60) 
 		{
 			attackDir = 0;
-			System.out.println("En haut");
 			this.dir = 0;
 		}
 		if (angleMouse >= -60 && angleMouse < 60) 
 		{
 			attackDir = 1;
-			System.out.println("A droite");
 			this.dir = 1;
 		}
 		if (angleMouse >= 60 && angleMouse < 120) 
 		{
 			attackDir = 2;
-			System.out.println("En bas");
 			this.dir = 2;
 		}
 		if (angleMouse >= 120 || angleMouse < -120) 
 		{
 			attackDir = 3;
-			System.out.println("A gauche");
 			this.dir = 3;
 		}
 
@@ -106,22 +102,18 @@ public class Player extends Mob {
 			if (angleMob >= -120 && angleMob < -60)
 			{
 				mobDir = 0;
-				System.out.println("Mob en haut");
 			}
 			if (angleMob >= -60 && angleMob < 60) 
 			{
 				mobDir = 1;
-				System.out.println("Mob à droite");
 			}
 			if (angleMob >= 60 && angleMob < 120)
 			{
 				mobDir = 2;
-				System.out.println("Mob en bas");
 			}
 			if (angleMob >= 120 || angleMob < -120)
 			{
 				mobDir = 3;
-				System.out.println("Mob à gauche");
 			}
 
 			if (distanceMob <= 40) 

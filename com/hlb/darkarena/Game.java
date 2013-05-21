@@ -2,6 +2,7 @@ package com.hlb.darkarena;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -11,6 +12,7 @@ import java.awt.image.DataBufferInt;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JSplitPane;
 
 import com.hlb.darkarena.entity.Entity;
 import com.hlb.darkarena.entity.mob.DarkArcher;
@@ -34,13 +36,13 @@ public class Game extends Canvas implements Runnable
 	public static String title = "Dark Arena";
 	
 	private Thread thread;
-	public JFrame frame;
+	public Frame frame;
 	private Keyboard key;
 	private Mouse mouse;
 	private Level level;
 	private Player player;
 	private boolean running = false;
-	private int numberZombies = 1;
+	private int numberZombies = 0;
 	private int numberDArchers = 0;
 	public static ArrayList<Mob> mobs = new ArrayList<Mob>();
 	public ArrayList<Integer> mobsX = new ArrayList<Integer>();
@@ -59,13 +61,13 @@ public class Game extends Canvas implements Runnable
 	
 	/** Constructeur de la classe Game */
 	
-	public Game()
+	public Game(Frame frame)
 	{
 		Dimension size = new Dimension(width*scale, height*scale);
 		setPreferredSize(size);
 		
 		screen = new Screen(width, height);
-		frame = new JFrame();
+		this.frame = frame;
 		key = new Keyboard();
 		mouse = new Mouse();
 		level = new SpawnLevel("/textures/levels/level.png");
@@ -212,10 +214,6 @@ public class Game extends Canvas implements Runnable
 		}
 		player.render(screen);
 		
-		if(key.escape)
-		{
-			GuiItems guiItems = new GuiItems(this, player, screen);
-		}
 		for(int i = 0; i<pixels.length; i++)
 		{
 			pixels[i] = screen.pixels[i];
@@ -243,17 +241,5 @@ public class Game extends Canvas implements Runnable
 	
 	/** Le main */
 	
-	public static void main(String[] args)
-	{
-		Game game = new Game();
-		game.frame.setResizable(false);
-		game.frame.setTitle(Game.title);
-		game.frame.add(game);
-		game.frame.pack();
-		game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		game.frame.setLocationRelativeTo(null);
-		game.frame.setVisible(true);
-		
-		game.start();
-	}
+
 }

@@ -38,10 +38,11 @@ public class aStar {
 		return curNode;
 	}
 	
-	//private static ArrayList getNeighbours(Node node, ArrayList graph)
+	private static ArrayList getNeighbours(Node node, ArrayList graph)
 	{
 		ArrayList neighbours = new ArrayList();
-		//int maxX = graph.get(0).;
+		//int maxX = graph.;
 		
+		return neighbours;
 	}
 }
