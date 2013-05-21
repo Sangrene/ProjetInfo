@@ -38,7 +38,7 @@ public class Game extends Canvas implements Runnable
 	private Mouse mouse;
 	private Level level;
 	public static Player player;
-	private boolean running = false;
+	public boolean running = false;
 	private int numberZombies = 0;
 	private int numberDArchers = 0;
 	public static ArrayList<Mob> mobs = new ArrayList<Mob>();
@@ -235,7 +235,7 @@ public class Game extends Canvas implements Runnable
 		bs.show();
 	}
 	
-	/** Le main */
+
 	
 
 }
