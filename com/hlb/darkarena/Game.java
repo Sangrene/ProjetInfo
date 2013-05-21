@@ -1,8 +1,8 @@
 package com.hlb.darkarena;
 
+import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -11,18 +11,15 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.util.ArrayList;
 
-import javax.swing.JFrame;
-import javax.swing.JSplitPane;
-
 import com.hlb.darkarena.entity.Entity;
 import com.hlb.darkarena.entity.mob.DarkArcher;
 import com.hlb.darkarena.entity.mob.Mob;
 import com.hlb.darkarena.entity.mob.Player;
 import com.hlb.darkarena.entity.mob.Zombie;
 import com.hlb.darkarena.graphics.Screen;
+import com.hlb.darkarena.informationsPanel.GuiInfo;
 import com.hlb.darkarena.input.Keyboard;
 import com.hlb.darkarena.input.Mouse;
-import com.hlb.darkarena.items.gui.GuiItems;
 import com.hlb.darkarena.level.Level;
 import com.hlb.darkarena.level.SpawnLevel;
 
@@ -30,7 +27,7 @@ import com.hlb.darkarena.level.SpawnLevel;
 public class Game extends Canvas implements Runnable
 {
 	private static final long serialVersionUID = 1L;
-	public static int width = 300;
+	public static int width = ((int)java.awt.Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 3 - 2) - (((int)java.awt.Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 3 - 2) / 6);
 	public static int height = width/16*9;
 	public static int scale = 3;
 	public static String title = "Dark Arena";
@@ -40,7 +37,7 @@ public class Game extends Canvas implements Runnable
 	private Keyboard key;
 	private Mouse mouse;
 	private Level level;
-	private Player player;
+	public static Player player;
 	private boolean running = false;
 	private int numberZombies = 0;
 	private int numberDArchers = 0;
@@ -65,7 +62,6 @@ public class Game extends Canvas implements Runnable
 	{
 		Dimension size = new Dimension(width*scale, height*scale);
 		setPreferredSize(size);
-		
 		screen = new Screen(width, height);
 		this.frame = frame;
 		key = new Keyboard();
@@ -175,8 +171,8 @@ public class Game extends Canvas implements Runnable
 				otherEntities.get(i).update();
 			}
 		
-		xMouse = -450 / 3 + mouse.getMouseX() / 3 + player.x;
-		yMouse = -240 / 3 + mouse.getMouseY() / 3 + player.y;
+		xMouse = -(width*3/2) / 3 + mouse.getMouseX() / 3 + player.x;
+		yMouse = -(height*3/2 + 3) / 3 + mouse.getMouseY() / 3 + player.y;
 		}
 	}
 	

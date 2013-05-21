@@ -15,7 +15,6 @@ import com.hlb.darkarena.items.Items;
 public class GuiItems extends JPanel
 {
 	private ArrayList<Items> playerInventory = new ArrayList<Items>();
-	private Player player;
 	private Game game;
 	private Graphics g;
 	public int pixels[];
@@ -24,27 +23,12 @@ public class GuiItems extends JPanel
 	private Screen screen;
 	
 	
-	public GuiItems(Game game, Player player, Screen screen)
+	public GuiItems(Game game)
 	{
-		this.game = game;
-		this.player = player;
-		this.screen = screen;
-		playerInventory = player.playerInventory;
-		
+		this.game = game;		
 		Dimension size = new Dimension(w*game.scale, h*game.scale);
-		setPreferredSize(size);
+		this.setPreferredSize(size);
 
-	}
-	
-	public void drawInventory()
-	{
-		
-	}
-	
-	
-	public void loadBackGround()
-	{
-		
 	}
 	
 	
